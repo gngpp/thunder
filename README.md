@@ -27,7 +27,7 @@ Usage: xunlei [OPTIONS] <COMMAND>
 Commands:
   install    Install xunlei
   uninstall  Uninstall xunlei
-  launch     Launch xunlei
+  launcher     Launcher xunlei
   help       Print this message or the help of the given subcommand(s)
 
 Options:
@@ -61,10 +61,10 @@ Options:
   -c, --clear  Clear xunlei default config directory
   -h, --help   Print help
 
-❯ ./xunlei launch --help 
-Launch xunlei
+❯ ./xunlei launcher --help 
+Launcher xunlei
 
-Usage: xunlei launch [OPTIONS]
+Usage: xunlei launcher [OPTIONS]
 
 Options:
       --debug                          Enable debug
@@ -90,7 +90,7 @@ xunlei install
 # 停止和卸载迅雷程序
 xunlei uninstall
 # 如果你的系统不支持systemd，则手动启动
-xunlei launch
+xunlei launcher
 ```
 
 ### Docker 运行
@@ -131,7 +131,7 @@ bash +x ./unpack.sh && cargo build --release --features embed && mv target/relea
 # 执行安装
 ./xunlei install
 # 若系统不支持systemd，则手动启动daemon
-./xunlei launch
+./xunlei launcher
 ```
 
 ### OpenWrt编译
