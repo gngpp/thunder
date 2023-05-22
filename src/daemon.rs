@@ -192,7 +192,7 @@ impl XunleiInstall {
         Ok(std::env::current_exe()?)
     }
 
-    fn systemd(&self, launch: PathBuf) -> anyhow::Result<()> {
+    fn systemd(&self, launcher: PathBuf) -> anyhow::Result<()> {
         if Systemd::support().not() {
             return Ok(());
         }
@@ -214,7 +214,7 @@ impl XunleiInstall {
                 
                 [Service]
                 Type=simple
-                ExecStart={} launch -h {} -p {} -d {} -c {} {}
+                ExecStart={} launcher -h {} -p {} -d {} -c {} {}
                 LimitNOFILE=1024
                 LimitNPROC=512
                 User={}
@@ -222,7 +222,7 @@ impl XunleiInstall {
                 [Install]
                 WantedBy=multi-user.target"#,
             self.description,
-            launch.display(),
+            launcher.display(),
             self.host,
             self.port,
             self.download_path.display(),

@@ -236,6 +236,8 @@ impl Running for XunleiBackendServer {
                 format!("-launcher_listen={}", env::LAUNCHER_SOCK),
                 format!("-pid={}", env::PID_FILE),
                 format!("-logfile={}", env::LAUNCH_LOG_FILE),
+                #[cfg(feature = "patch")]
+                format!("-update_url={}", "empty"),
             ])
             .current_dir(env::SYNOPKG_PKGDEST)
             .envs(self.envs)
@@ -509,12 +511,12 @@ impl Running for XunleiPanelServer {
 
 impl From<(XunleiLauncher, HashMap<String, String>)> for XunleiPanelServer {
     fn from(value: (XunleiLauncher, HashMap<String, String>)) -> Self {
-        let launch = value.0;
+        let launcher = value.0;
         Self {
-            auth_user: launch.auth_user.clone(),
-            auth_password: launch.auth_password.clone(),
-            host: launch.host,
-            port: launch.port,
+            auth_user: launcher.auth_user.clone(),
+            auth_password: launcher.auth_password.clone(),
+            host: launcher.host,
+            port: launcher.port,
             envs: value.1,
         }
     }

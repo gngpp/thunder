@@ -1,8 +1,8 @@
 #[cfg(feature = "daemon")]
 pub mod daemon;
 pub mod env;
-#[cfg(feature = "launch")]
-pub mod launch;
+#[cfg(feature = "launcher")]
+pub mod launcher;
 #[cfg(all(target_os = "linux", target_env = "musl"))]
 pub mod libc_asset;
 pub mod util;
@@ -41,9 +41,9 @@ pub enum Commands {
         #[clap(short, long)]
         clear: bool,
     },
-    #[cfg(feature = "launch")]
-    /// Launch xunlei
-    Launch(Config),
+    #[cfg(feature = "launcher")]
+    /// Launcher xunlei
+    Launcher(Config),
 }
 
 #[derive(Args)]
@@ -83,9 +83,9 @@ fn main() -> anyhow::Result<()> {
         Commands::Uninstall { clear } => {
             daemon::XunleiUninstall::from(clear).run()?;
         }
-        #[cfg(feature = "launch")]
-        Commands::Launch(config) => {
-            launch::XunleiLauncher::from(config).run()?;
+        #[cfg(feature = "launcher")]
+        Commands::Launcher(config) => {
+            launcher::XunleiLauncher::from(config).run()?;
         }
     }
     Ok(())
