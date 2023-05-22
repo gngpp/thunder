@@ -139,6 +139,8 @@ bash +x ./unpack.sh && cargo build --release --features embed && mv target/relea
 ```shell
 cd package
 svn co https://github.com/gngpp/xunlei/trunk/openwrt
+# 如果你插件依赖有glibc，避免兼容问题，请使用执行
+sed -i 's/xunlei-launcher/xunlei-launcher-patch/g' openwrt/xunlei/Makefile
 cd -
 make menuconfig # choose LUCI->Applications->luci-app-xunlei  
 make V=s
