@@ -26,10 +26,11 @@ signal-hook = "0.3.15"
 clap = { version = "4.2.5", features = ["derive", "env"] }
 
 [features]
-default = ["launch", "daemon"]
-embed = ["launch", "daemon"]
-launch = []
+default = ["launcher", "daemon"]
+embed = ["launcher", "daemon"]
+launcher = []
 daemon = []
+patch = []
 
 [[bin]]
 name = "xunlei"

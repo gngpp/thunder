@@ -42,7 +42,7 @@ define Build/Prepare
 	rm $(PKG_SOURCE).sha256 $(PKG_SOURCE)
 
 	tar -xvf $(DL_DIR)/$(PKG_SOURCE)
-	mv xunlei-launch-$(PKG_VERSION)-$(ARCH)-unknown-linux-musl/* $(PKG_BUILD_DIR)/
+	mv xunlei-launcher-$(PKG_VERSION)-$(ARCH)-unknown-linux-musl/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile

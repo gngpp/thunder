@@ -11,10 +11,10 @@ RUN if [ "${TARGETPLATFORM}" = "linux/arm64" ]; then \
     fi
 RUN apk update && apk add wget
 RUN mkdir -p /var/packages/pan-xunlei-com/target
-RUN wget https://github.com/gngpp/xunlei/releases/download/v${VERSION}/xunlei-launch-${VERSION}-$(cat arch)-unknown-linux-musl.tar.gz
-RUN tar -xvf xunlei-launch-${VERSION}-$(cat arch)-unknown-linux-musl.tar.gz && chmod 755 /var/packages/pan-xunlei-com/target
-RUN mv xunlei-launch-${VERSION}-$(cat arch)-unknown-linux-musl/bin/* /var/packages/pan-xunlei-com/target/
-RUN mv xunlei-launch-${VERSION}-$(cat arch)-unknown-linux-musl/xunlei .
+RUN wget https://github.com/gngpp/xunlei/releases/download/v${VERSION}/xunlei-launcher-${VERSION}-$(cat arch)-unknown-linux-musl.tar.gz
+RUN tar -xvf xunlei-launcher-${VERSION}-$(cat arch)-unknown-linux-musl.tar.gz && chmod 755 /var/packages/pan-xunlei-com/target
+RUN mv xunlei-launcher-${VERSION}-$(cat arch)-unknown-linux-musl/bin/* /var/packages/pan-xunlei-com/target/
+RUN mv xunlei-launcher-${VERSION}-$(cat arch)-unknown-linux-musl/xunlei .
 COPY authenticate.cgi /var/packages/pan-xunlei-com/target/host/usr/syno/synoman/webman/modules/authenticate.cgi
 COPY synoinfo.conf /var/packages/pan-xunlei-com/target/host/etc/synoinfo.conf
 RUN chmod 755 /var/packages/pan-xunlei-com/target/host/usr/syno/synoman/webman/modules/authenticate.cgi

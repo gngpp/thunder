@@ -116,14 +116,14 @@ jobs:
       - name: Archive package
         uses: actions/upload-artifact@v3
         with:
-          name: xunlei-launch-${{ matrix.target.arch }}
+          name: xunlei-launcher-${{ matrix.target.arch }}
           path: openwrt-sdk/bin/packages/${{ matrix.target.arch }}/xunlei/xunlei*.ipk
           if-no-files-found: error
       - name: Archive luci packages
         if: ${{ matrix.target.arch == 'x86_64' }}
         uses: actions/upload-artifact@v3
         with:
-          name: xunlei-launch-luci-${{ matrix.target.arch }}
+          name: xunlei-launcher-luci-${{ matrix.target.arch }}
           path: openwrt-sdk/bin/packages/${{ matrix.target.arch }}/xunlei/luci-*.ipk
           if-no-files-found: error
       - name: Upload package to GitHub Release

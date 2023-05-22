@@ -23,6 +23,6 @@ mount --bind /proc /rootfs/proc
 mount --bind /opt/data /rootfs/opt/data
 mount --bind /downloads /rootfs/downloads
 
-chroot /rootfs /bin/bash -c "echo 'nameserver 119.29.29.29' > /etc/resolv.conf && /bin/mount -t proc none /proc && /bin/xunlei launch -c /opt/data -d /downloads"
+chroot /rootfs /bin/bash -c "echo 'nameserver 119.29.29.29' > /etc/resolv.conf && /bin/mount -t proc none /proc && /bin/xunlei launcher -c /opt/data -d /downloads"
 
 exec "$@"
