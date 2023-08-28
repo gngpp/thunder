@@ -15,7 +15,7 @@ log = "0.4.20"
 env_logger = "0.10.0"
 chrono = "0.4.26"
 anyhow = "1.0.75"
-rust-embed = "6.8.1"
+rust-embed = "8.0.0"
 nix = { version = "0.26.2", features = ["mount", "signal", "user"]}
 rand = "0.8.5"
 ureq = "2.7.1"
