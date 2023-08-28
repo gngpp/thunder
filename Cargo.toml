@@ -23,7 +23,7 @@ sha3 = "0.10.8"
 indicatif = "0.17.6"
 rouille= "3.6.2"
 signal-hook = "0.3.16"
-clap = { version = "4.3.23", features = ["derive", "env"] }
+clap = { version = "4.4.0", features = ["derive", "env"] }
 
 [features]
 default = ["launcher", "daemon"]
