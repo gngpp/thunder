@@ -18,13 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install cargo packages
-        run: cargo install cargo-deb
-
-      - name: Install depends
-        run: |
-          apt update && apt install upx rename wget git -y
-
       - name: Get tag
         if: startsWith(github.ref, 'refs/tags/')
         id: tag
