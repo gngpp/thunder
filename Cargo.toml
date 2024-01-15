@@ -34,7 +34,7 @@ mimalloc = { version = "0.1.39", default-features = false, optional = true }
 daemonize = "0.5.0"
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
-tower-http = { version = "0.4.4", default-features = false, features = ["trace"]}
+tower-http = { version = "0.5.1", default-features = false, features = ["trace"]}
 
 [features]
 default = ["mimalloc"]
